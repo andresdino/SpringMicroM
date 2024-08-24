@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ProductoService {
 
-    List<Producto> catalogo = List.of();
+    List<Producto> catalogo();
 
     List<Producto> productoCategoria(String categoria);
 

@@ -18,6 +18,10 @@ public class ProductosServicesImpl implements ProductoService {
             new Producto(106,"Fregona","Limpieza",3.40,6),
             new Producto(107,"Detergente","Limpieza",8.7,12)));
 
+    @Override
+    public List<Producto> catalogo(){
+        return productos;
+    }
 
     @Override
     public List<Producto> productoCategoria(String categoria) {
@@ -43,14 +47,20 @@ public class ProductosServicesImpl implements ProductoService {
 
     @Override
     public Producto eliminarProducto(int cod) {
+        Producto producto = productoCodigo(cod);
+
         if(productoCodigo(cod)!=null){
-            productos.remove(productoCodigo(cod));
+            productos.removeIf(p->p.getCodProducto()==cod);
         }
-        return productoCodigo(cod);
+        return producto;
     }
 
     @Override
     public Producto actualzarPrecio(int cod, double precio) {
-        return null;
+        Producto producto = productoCodigo(cod);
+        if(producto !=null){
+            producto.setPrecioUnitario(precio);
+        }
+        return producto;
     }
 }
