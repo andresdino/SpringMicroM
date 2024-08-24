@@ -8,7 +8,6 @@ import lombok.Setter;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
 @Setter
 public class Producto {
 
@@ -18,4 +17,23 @@ public class Producto {
     private double precioUnitario;
     private int stock;
 
+    public int getCodProducto() {
+        return codProducto;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public double getPrecioUnitario() {
+        return precioUnitario;
+    }
+
+    public int getStock() {
+        return stock;
+    }
 }
